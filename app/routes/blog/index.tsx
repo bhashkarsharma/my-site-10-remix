@@ -1,8 +1,16 @@
+import type { MetaFunction } from 'remix';
 import { Link, useLoaderData } from 'remix';
 import type { LoaderFunction } from 'remix';
 import { getPosts, getPublishedLocaleDate } from '~/utils/post';
 import type { Post } from '~/types/post';
 import PageTitle from '~/components/PageTitle';
+
+export let meta: MetaFunction = () => {
+  return {
+    title: 'Blog - Bhashkar Sharma',
+    description: 'My writings',
+  };
+};
 
 export const loader: LoaderFunction = () => getPosts();
 

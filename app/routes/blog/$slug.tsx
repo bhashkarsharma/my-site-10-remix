@@ -1,10 +1,17 @@
 import { useLoaderData } from 'remix';
-import type { LoaderFunction } from 'remix';
+import type { LoaderFunction, MetaFunction } from 'remix';
 import invariant from 'tiny-invariant';
 import { getPost, getPublishedLocaleDate } from '~/utils/post';
 import type { Post } from '~/types/post';
 import PageTitle from '~/components/PageTitle';
 import { tw } from 'brise';
+
+export let meta: MetaFunction = ({ data }: { data: Post }) => {
+  return {
+    title: `${data.title} - Bhashkar Sharma`,
+    description: data.byline ?? 'My writings',
+  };
+};
 
 export const loader: LoaderFunction = async ({ params: { slug } }) => {
   invariant(slug, 'expected params.slug');
