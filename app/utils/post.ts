@@ -3,16 +3,6 @@ import { table } from './airtable';
 import { PostSchema } from '~/types/post';
 import type { FieldSet, Record } from 'airtable';
 
-type NewPost = {
-  title: string;
-  slug: string;
-  markdown: string;
-};
-
-export type PostMarkdownAttributes = {
-  title: string;
-};
-
 const convertRecordToPost = (record: Record<FieldSet>) => {
   const post = {
     id: record.id,

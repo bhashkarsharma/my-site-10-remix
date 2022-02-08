@@ -38,7 +38,7 @@ export const PostSchema = z
     byline: z.optional(z.string()),
     hero: z.optional(z.array(HeroImageSchema)),
     content: z.optional(z.string()),
-    tags: z.optional(z.string()),
+    tags: z.optional(z.array(z.string())),
   })
   .strict();
 
