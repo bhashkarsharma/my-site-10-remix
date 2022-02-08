@@ -9,15 +9,13 @@ export const loader: LoaderFunction = () => getPosts();
 export default function Blog() {
   const posts = useLoaderData<Post[]>();
 
-  console.log(posts);
-
   return (
     <div className="main-wrapper">
       <PageTitle>Recent Posts</PageTitle>
       <ul>
         {posts.map((post) => (
           <li className="my-4" key={post.id}>
-            <Link to={`/blog${post.slug}`}>
+            <Link to={`/blog/${post.slug}`}>
               <h2 className="mb-6 text-3xl lg:text-5xl capitalize font-bold">
                 {post.title}
               </h2>

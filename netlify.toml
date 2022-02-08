@@ -7,6 +7,9 @@
   command = "npm run dev"
   port = 3000
 
+[functions]
+  external_node_modules = ["@remix-run/react", "react", "react-dom"]
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
